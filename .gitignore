@@ -1,0 +1,17 @@
+# compiled output
+/frontend/dist
+/frontend/tmp
+
+# dependencies
+/backend/node_modules
+/frontend/node_modules
+/backend/bower_components
+/frontend/bower_components
+
+# misc
+/frontend/.sass-cache
+/frontend/connect.lock
+/frontend/coverage/*
+/frontend/libpeerconnection.log
+/frontend/npm-debug.log
+/frontend/testem.log
