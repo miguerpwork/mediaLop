@@ -18,6 +18,12 @@ module.exports = function(environment) {
       // when it is created
     }
   };
+ENV['simple-auth'] = {
+    store: 'simple-auth-session-store:local-storage',
+    authorizer: 'authorizer:oauth2',
+    crossOriginWhitelist: ['http://localhost:4200/'],
+    routeAfterAuthentication: '/'
+};
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

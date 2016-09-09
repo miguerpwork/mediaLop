@@ -20,15 +20,15 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  <!-- Bootstrap 3.3.6 -->
+  // <!-- Bootstrap 3.3.6 -->
   app.import('bower_components/AdminLTE/bootstrap/css/bootstrap.min.css');
   app.import('bower_components/AdminLTE/bootstrap/css/bootstrap.min.css.map');
-  <!-- Theme style -->
+  // <!-- Theme style -->
   app.import('bower_components/AdminLTE/dist/css/AdminLTE.min.css');
   app.import('bower_components/AdminLTE/dist/css/skins/_all-skins.min.css');
 
   app.import('bower_components/AdminLTE/bootstrap/js/bootstrap.min.js');
-  <!-- AdminLTE App -->
+  // <!-- AdminLTE App -->
   app.import('bower_components/AdminLTE/dist/js/app.min.js');
 
 

@@ -8,6 +8,10 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('login');
+  // this.route('register');
+  // this.route('feed');
+  // this.route('profile');
+  this.route('photos');
 });
 
 export default Router;

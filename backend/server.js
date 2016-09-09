@@ -4,7 +4,7 @@ var path = require('path');
 
 var app = express();
 app.use(express.static(path.resolve(__dirname, '../frontend/dist')));
-
+console.log(__dirname);
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
   	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -12,7 +12,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-mongoose.connect('mongodb://localhost/mediaLop');
+mongoose.connect('mongodb://104.131.47.69/mediaLop');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -70,9 +70,23 @@ app.get('/api/kitten', function(req,res) {
     else {
       res.send({data: fluffy})
     }
-    // fluffy.speak();
   });
 
 });
 
-app.listen('4500');
+app.post('/api/login', function(req, res) {
+  if(req.body.grant_type === 'password') {
+      	
+	UserModel.findOne({username: req.body.username, password: req.body.password}, function(err, user) {
+	    if(err) {
+	        res.status(400).send('{ "error": "invalid_grant" }');
+	    }else {
+	        res.status(200).send('{ "access_token": "token"}');
+	    }
+    });
+  }else {
+    res.status(400).send('{ "error": "unsupported_grant_type" }');
+  }
+});  
+
+app.listen(process.env.PORT || '4500');
