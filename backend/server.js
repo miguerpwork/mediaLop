@@ -1,7 +1,9 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var path = require('path');
 
 var app = express();
+app.use(express.static(path.resolve(__dirname, '../frontend/dist')));
 
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
